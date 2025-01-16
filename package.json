@@ -1,0 +1,11 @@
+{
+  "name": "sass-course",
+  "version": "0.0.1",
+  "description": "sass practice",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./assets/scss/style.scss ./assets/css/style.css"
+  },
+  "author": "ProfeRick",
+  "license": "ISC"
+}

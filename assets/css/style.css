@@ -1,0 +1,49 @@
+.proferick-title {
+  color: blue;
+  font-size: 3rem;
+}
+
+.proferick-title-secondary {
+  color: green;
+  font-size: 3rem;
+}
+
+.proferick-dark {
+  color: black;
+  font-size: 3rem;
+  font-weight: 20px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  /*
+  padding: {
+      top:2px;
+      left:2px;
+      right: 2px;
+  }*/
+}
+
+.proferick-card {
+  width: 250px;
+  padding: 0;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: green;
+}
+.proferick-card img {
+  width: 100%;
+  height: 150px;
+  display: block;
+}
+.proferick-card__body {
+  height: 50px;
+  text-align: center;
+  background: blue;
+  line-height: 20px;
+}
+.proferick-card h1 {
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

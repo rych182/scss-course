@@ -1,0 +1,26 @@
+//este es un comentario
+.#{$brand}-title{
+    color: $primary;
+    font-size: $font-size;
+}
+
+.#{$brand}-title-secondary{
+    color: $secondary;
+    font-size: $font-size;
+}
+
+.#{$brand}-dark{
+    color: $dark;
+    //font-size: $font-size;
+    //nesting-anidación
+    font: {
+        size: $font-size;
+        weight:20px;
+        family: Arial, "Helvetica Neue",Helvetica, sans-serif;
+    }/*
+    padding: {
+        top:2px;
+        left:2px;
+        right: 2px;
+    }*/
+}

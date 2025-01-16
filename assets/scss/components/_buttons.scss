@@ -1,0 +1,182 @@
+/*
+selector placeholder(EXTEND)
+No existe la clase boton, la funcionalidad existe cuando nosotros
+creamos la clase y utilizamos "extend"
+
+Selector padre &&&&
+se usa &
+
+MIXINS
+se crea usando @mixin nombreDelMixin ($variable1,$variable2)
+se utiliza usando include @
+
+Soli Buttons
+%btn{
+    height: 40px;
+    min-width: 100px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 6px 2px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.#{$brand}-btn-{
+    &primary, &success, &danger{
+        @extend %btn;
+    }
+    &primary {
+        background: $primary;
+    }
+    &success {
+        background: rgb(40, 192, 40);
+    }
+    &danger {
+        background: rgb(231, 47, 56);
+    }
+}
+
+
+outline buttons
+.btn-outline{
+    height: 40px;
+    min-width: 100px;
+    background: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 6px 2px;
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+    
+    &-primary {
+        border: 1px solid $primary;
+        color: $primary;
+        &:hover{
+            background: $primary;
+            color: white;
+        }
+    }
+    &-success {
+        border: 1px solid rgb(40, 192, 40);
+        color: rgb(40, 192, 40);
+        &:hover{
+            background: rgb(40, 192, 40);
+            color: white;
+        }
+    }
+    &-danger {
+        border: 1px solid rgb(231, 47, 56);
+        color: rgb(231, 47, 56);
+        &:hover{
+            background: rgb(231, 47, 56);
+            color: white;
+        }
+    }
+}
+
+
+======código sin optimizar========
+.#{$brand}-btn-primary{
+    @extend %btn;
+    background: $primary;
+}
+
+.#{$brand}-btn-success{
+    @extend %btn;
+    background: rgb(40, 192, 40);
+}
+
+.#{$brand}-btn-danger{
+    @extend %btn;
+    background: rgb(231, 47, 56);
+}
+
+
+=======PRIMER OPTIMIZACIÓN =========    
+
+.#{$brand}-btn-{
+    &primary {
+        @extend %btn;
+        background: $primary;
+    }
+    &success {
+        @extend %btn;
+        background: rgb(40, 192, 40);
+    }
+    &danger {
+        @extend %btn;
+        background: rgb(231, 47, 56);
+    }
+}
+
+=======segunda optimización========
+.#{$brand}-btn-{
+    &primary, &success, &danger{
+        @extend %btn;
+    }
+    &primary {
+        background: $primary;
+    }
+    &success {
+        background: rgb(40, 192, 40);
+    }
+    &danger {
+        background: rgb(231, 47, 56);
+    }
+}
+
+=======TERCERA OPTIMIZACIÓN=========
+Usando mixins
+
+@mixin button ($name, $color) {
+    .btn-outline-#{$name} {
+        border: 1px solid $color;
+        color: $color;
+        &:hover{
+            background: $color;
+            color: white;
+        }
+    }
+}
+
+@include button('primary',$primary);
+@include button('success',rgb(40, 192, 40));
+@include button('danger',rgb(231, 47, 56));
+
+========CUARTA OPTIMIZACIÓN=========
+Usando mixin
+
+@mixin button ($name, $color) {
+    &-#{$name} {
+        border: 1px solid $color;
+        color: $color;
+        &:hover {
+            background: $color;
+            color: white;
+        }
+    }
+}
+
+Y los @include van dentro de la clase
+
+.btn-outline{
+    height: 40px;
+    min-width: 100px;
+    background: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 6px 2px;
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+
+    @include button('primary',$primary);
+    @include button('success',rgb(40, 192, 40));
+    @include button('danger',rgb(231, 47, 56));
+}
+
+*/
