@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .proferick-title {
   color: blue;
   font-size: 3rem;
@@ -45,5 +46,63 @@
   line-height: 50px;
   margin: 0;
 }
+
+.proferick-btn-primary, .proferick-btn-success, .proferick-btn-danger {
+  height: 40px;
+  min-width: 100px;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  margin: 5px 0;
+  box-shadow: 2px 2px 6px 2px;
+}
+.proferick-btn-primary:hover, .proferick-btn-success:hover, .proferick-btn-danger:hover {
+  cursor: pointer;
+}
+
+.proferick-btn-primary {
+  background: blue;
+}
+.proferick-btn-success {
+  background: rgb(40, 192, 40);
+}
+.proferick-btn-danger {
+  background: rgb(231, 47, 56);
+}
+
+/*
+======código sin optimizar========
+.proferick-btn-primary{
+    @extend %btn;
+    background: $primary;
+}
+
+.proferick-btn-success{
+    @extend %btn;
+    background: rgb(40, 192, 40);
+}
+
+.proferick-btn-danger{
+    @extend %btn;
+    background: rgb(231, 47, 56);
+}
+
+
+=======segunda optimización========
+.proferick-btn-{
+    &primary, &success, &danger{
+        @extend %btn;
+    }
+    &primary {
+        background: $primary;
+    }
+    &success {
+        background: rgb(40, 192, 40);
+    }
+    &danger {
+        background: rgb(231, 47, 56);
+    }
+}
+*/
 
 /*# sourceMappingURL=style.css.map */

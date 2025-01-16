@@ -1,0 +1,62 @@
+%btn{
+    height: 40px;
+    min-width: 100px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 6px 2px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.#{$brand}-btn-{
+    &primary, &success, &danger{
+        @extend %btn;
+    }
+    &primary {
+        background: $primary;
+    }
+    &success {
+        background: rgb(40, 192, 40);
+    }
+    &danger {
+        background: rgb(231, 47, 56);
+    }
+}
+
+/*
+======código sin optimizar========
+.#{$brand}-btn-primary{
+    @extend %btn;
+    background: $primary;
+}
+
+.#{$brand}-btn-success{
+    @extend %btn;
+    background: rgb(40, 192, 40);
+}
+
+.#{$brand}-btn-danger{
+    @extend %btn;
+    background: rgb(231, 47, 56);
+}
+
+
+=======segunda optimización========
+.#{$brand}-btn-{
+    &primary, &success, &danger{
+        @extend %btn;
+    }
+    &primary {
+        background: $primary;
+    }
+    &success {
+        background: rgb(40, 192, 40);
+    }
+    &danger {
+        background: rgb(231, 47, 56);
+    }
+}
+*/
